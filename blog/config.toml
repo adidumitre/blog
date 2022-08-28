@@ -1,0 +1,5 @@
+baseURL = 'https://adidumitre.github.io/adidumitreblog/'
+languageCode = 'en-us'
+title = 'Blog'
+
+theme = 'contrast-hugo'
