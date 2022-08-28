@@ -1,6 +1,6 @@
 baseURL = 'https://adidumitre.github.io/adidumitreblog/'
 languageCode = 'en-us'
-title = 'Blog'
+title = 'Dumitrescu Ioan Adrian'
 
 theme = 'contrast-hugo'
 
