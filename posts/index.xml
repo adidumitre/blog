@@ -13,7 +13,8 @@
       <pubDate>Sun, 28 Aug 2022 23:51:02 +0300</pubDate>
       
       <guid>https://adidumitre.github.io/blog/posts/postare1/</guid>
-      <description>1. Create an account on Github 2. Download Github Desktop 3. We need to install hugo &#39;&#39;&#39;bash brew install hugo &#39;&#39;&#39; How to install brew Open a terminal and run the following command: &#39;&#39;&#39;bash /bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot; &#39;&#39;&#39; and press `enter` </description>
+      <description>1. Create an account on Github 2. Download Github Desktop 3. We need to install hugo brew install hugo How to install brew Open a terminal and run the following command:
+/bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; and press enter</description>
     </item>
     
     <item>
