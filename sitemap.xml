@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://adidumitre.github.io/blog/posts/postare/</loc>
-    <lastmod>2022-08-28T23:51:02+03:00</lastmod>
+    <loc>https://adidumitre.github.io/blog/posts/raport_juiceshop/</loc>
+    <lastmod>2022-09-19T21:08:26+03:00</lastmod>
   </url><url>
     <loc>https://adidumitre.github.io/blog/posts/</loc>
-    <lastmod>2022-08-28T23:51:02+03:00</lastmod>
+    <lastmod>2022-09-19T21:08:26+03:00</lastmod>
   </url><url>
     <loc>https://adidumitre.github.io/blog/</loc>
+    <lastmod>2022-09-19T21:08:26+03:00</lastmod>
+  </url><url>
+    <loc>https://adidumitre.github.io/blog/posts/postare/</loc>
     <lastmod>2022-08-28T23:51:02+03:00</lastmod>
   </url><url>
     <loc>https://adidumitre.github.io/blog/categories/</loc>
