@@ -23,7 +23,9 @@
       
       <guid>https://adidumitre.github.io/blog/posts/postare/</guid>
       <description>1. Create an account on Github 2. Download Github Desktop 3. We need to install hugo brew install hugo How to install brew Open a terminal and run the following command:
-/bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; and press enter</description>
+/bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; and press enter
+4. Create a new repository 5. Create a new site. Open a terminal -&amp;gt; Go to desktop and run the following command:
+hugo new site blog 6. Now you need to git clone your theme Go to -&amp;gt; /blog/themes and run the command:</description>
     </item>
     
   </channel>
