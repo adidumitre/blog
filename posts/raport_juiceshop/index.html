@@ -21,8 +21,48 @@
     <time datetime="2022-09-19T21:08:26&#43;03:00">September 19, 2022</time>
   </header>
   <!-- raw HTML omitted -->
-<h2 id="first-vulnerability">First vulnerability</h2>
+<h2 id="vulnerability-title-the-application-is-vulnerable-to-sql-injection">Vulnerability Title: The application is vulnerable to SQL Injection</h2>
 <hr>
+<h2 id="vulnerability-description">Vulnerability Description:</h2>
+<p>SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. A SQL injection (SQLi) manipulates SQL code to provide access to protected resources, such as sensitive data, or execute malicious SQL statements. <!-- raw HTML omitted --></p>
+<p>SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. It generally allows an attacker to view data that they are not normally able to retrieve. This might include data belonging to other users, or any other data that the application itself is able to access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application&rsquo;s content or behavior. <!-- raw HTML omitted --></p>
+<p>Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including the execution of system commands. <!-- raw HTML omitted --></p>
+<p>There are a wide variety of SQL injection vulnerabilities, attacks, and techniques, which arise in different situations. Some common SQL injection attacks include Classic SQLI, Blind or Inference SQL injection, Database management system-specific SQLI.</p>
+<hr>
+<h2 id="affected-component">Affected Component:</h2>
+<pre><code>http://localhost:3000/rest/user/login
+</code></pre>
+<hr>
+<h2 id="affected-users">Affected Users:</h2>
+<pre><code>All the users that have an account.
+</code></pre>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce">Proof of Concept (Steps to Reproduce):</h2>
+<p>Directly from the web application.<!-- raw HTML omitted -->
+1. Log in with Email <code>' or 1=1--</code> and any <code>Password</code> which will authenticate the first entry in the Users table which coincidentally happens to be the administrator <!-- raw HTML omitted -->
+2. Log in with Email <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>&rsquo;&ndash; and any Password if you already know the email address of the administrator</p>
+<p>You can also use a tool like Burp to intercept all the requests. <!-- raw HTML omitted --></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191295772-5b3d9a0f-6e64-40db-a380-4583a2a2e3e9.png" alt="img1">
+<!-- raw HTML omitted -->
+We can observe in the Response that the application is vulnerable to SQL Injection. It also shows us how SQL query looks like.
+<img src="https://user-images.githubusercontent.com/92368728/191296086-093f65c4-b812-44c4-9865-cf801b32edbd.png" alt="img2"></p>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability">Criticality: This is a critical vulnerability.</h2>
+<p>Impact: An attacker can escalate the attack to compromise the underlying server or other back-end infrastructure or perform a denial-of-service attack. Many high-profile data breaches in recent years have been the result of SQL injection attacks, leading to reputational damage and regulatory fines. In some cases, an attacker can obtain a persistent backdoor into an organization&rsquo;s systems, leading to a long-term compromise that can go unnoticed for an extended period.</p>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191296467-f852d9db-3b22-46ff-b754-8c36e08922d9.png" alt="img3"></p>
+<hr>
+<h2 id="suggested-fixes-remediations">Suggested Fixes (Remediations):</h2>
+<p><code>Primary Defenses</code></p>
+<p>Option 1: Use of Prepared Statements (with Parameterized Queries)<!-- raw HTML omitted -->
+Option 2: Use of Properly Constructed Stored Procedures <!-- raw HTML omitted -->
+Option 3: Allow-list Input Validation
+Option 4: Escaping All User Supplied Input</p>
+<hr>
+<p><code> Additional Defenses:</code></p>
+<p>Also: Enforcing Least Privilege<!-- raw HTML omitted -->
+Also: Performing Allow-list Input Validation as a Secondary Defense</p>
 
 </article>
 
