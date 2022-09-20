@@ -38,10 +38,18 @@
 </code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce">Proof of Concept (Steps to Reproduce):</h2>
-<p>Directly from the web application.<!-- raw HTML omitted -->
-1. Log in with Email <code>' or 1=1--</code> and any <code>Password</code> which will authenticate the first entry in the Users table which coincidentally happens to be the administrator <!-- raw HTML omitted -->
-2. Log in with Email <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>&rsquo;&ndash; and any Password if you already know the email address of the administrator</p>
+<p>Directly from the web application.<!-- raw HTML omitted --></p>
+<ol>
+<li>
+<p>Log in with Email <code>' or 1=1--</code> and any <code>Password</code> which will authenticate the first entry in the Users table which coincidentally happens to be the administrator <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>Log in with Email <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>&rsquo;&ndash; and any Password if you already know the email address of the administrator <!-- raw HTML omitted --></p>
+</li>
+<li>
 <p>You can also use a tool like Burp to intercept all the requests. <!-- raw HTML omitted --></p>
+</li>
+</ol>
 <p><img src="https://user-images.githubusercontent.com/92368728/191295772-5b3d9a0f-6e64-40db-a380-4583a2a2e3e9.png" alt="img1">
 <!-- raw HTML omitted --></p>
 <p>We can observe in the Response that the application is vulnerable to SQL Injection. It also shows us how SQL query looks like.<!-- raw HTML omitted --></p>
