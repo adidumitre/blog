@@ -23,21 +23,21 @@
   <!-- raw HTML omitted -->
 <h2 id="1-the-application-is-vulnerable-to-sql-injection">1. The application is vulnerable to SQL Injection</h2>
 <hr>
-<h2 id="vulnerability-description">Vulnerability Description:</h2>
+<h2 id="vulnerability-description">Vulnerability Description</h2>
 <p>SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. A SQL injection (SQLi) manipulates SQL code to provide access to protected resources, such as sensitive data, or execute malicious SQL statements. <!-- raw HTML omitted --></p>
 <p>SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. It generally allows an attacker to view data that they are not normally able to retrieve. This might include data belonging to other users, or any other data that the application itself is able to access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application&rsquo;s content or behavior. <!-- raw HTML omitted --></p>
 <p>Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including the execution of system commands. <!-- raw HTML omitted --></p>
 <p>There are a wide variety of SQL injection vulnerabilities, attacks, and techniques, which arise in different situations. Some common SQL injection attacks include Classic SQLI, Blind or Inference SQL injection, Database management system-specific SQLI.</p>
 <hr>
-<h2 id="affected-component">Affected Component:</h2>
+<h2 id="affected-component">Affected Component</h2>
 <pre><code>http://localhost:3000/rest/user/login
 </code></pre>
 <hr>
-<h2 id="affected-users">Affected Users:</h2>
+<h2 id="affected-users">Affected Users</h2>
 <pre><code>All the users that have an account
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce">Proof of Concept (Steps to Reproduce):</h2>
+<h2 id="proof-of-concept-steps-to-reproduce">Proof of Concept (Steps to Reproduce)</h2>
 <p>Directly from the web application.<!-- raw HTML omitted --></p>
 <ol>
 <li>
@@ -61,7 +61,7 @@
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <p><img src="https://user-images.githubusercontent.com/92368728/191296467-f852d9db-3b22-46ff-b754-8c36e08922d9.png" alt="img3"></p>
 <hr>
-<h2 id="suggested-fixes-remediations">Suggested Fixes (Remediations):</h2>
+<h2 id="suggested-fixes-remediations">Suggested Fixes (Remediations)</h2>
 <p><code>Primary Defenses</code></p>
 <p>Option 1: Use of Prepared Statements (with Parameterized Queries)<!-- raw HTML omitted -->
 Option 2: Use of Properly Constructed Stored Procedures <!-- raw HTML omitted -->
@@ -74,11 +74,12 @@ Also: Performing Allow-list Input Validation as a Secondary Defense</p>
 <hr>
 <h2 id="2-brute-force-login-page-is-vulnerable-to-password-guessing-attacks">2. Brute-Force: Login page is vulnerable to password-guessing attacks</h2>
 <hr>
-<h2 id="vulnerability-description-1">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-1">Vulnerability Description</h2>
 <p>A brute force attack is a type of cyber attack that uses a trial-and-error method to guess all possible combinations of a password, encryption key, or any login information. It is called “brute force” because the malicious actor will use repetitive, forceful attempts to gain unauthorized access to an account. Though surprisingly simple, brute force attacks have a high success rate.</p>
 <hr>
 <h2 id="affected-component-1">Affected Component</h2>
-<p>http://localhost:3000/rest/user/login</p>
+<pre><code>http://localhost:3000/rest/user/login
+</code></pre>
 <hr>
 <h2 id="affected-users-1">Affected Users</h2>
 <p>All the users that have an account</p>
@@ -129,65 +130,117 @@ A web application firewall (WAF) offers adequate protection against brute force 
 </li>
 </ol>
 <hr>
-<h2 id="3-vulnerability-title">3. Vulnerability Title:</h2>
+<h2 id="3-confidential-documents-exposed-to-public-access">3. Confidential documents exposed to public access</h2>
 <hr>
-<h2 id="vulnerability-description-2">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-2">Vulnerability Description</h2>
+<p>Multiple files were found on the web server. These files are usually created by developers to back up their work and can contain sensitive data that can expose and disclose all the critical information about the system.</p>
 <hr>
 <h2 id="affected-component-2">Affected Component</h2>
-<hr>
-<h2 id="affected-users-2">Affected Users</h2>
+<pre><code>http://localhost:3000/ftp
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-2">Proof of Concept (Steps to Reproduce)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191490811-22755035-a73b-4306-947f-06a441b8dd4e.png" alt="image">
+<img src="https://user-images.githubusercontent.com/92368728/191490899-2fa364e2-9ee2-46ac-82dc-bfd3363e6f80.png" alt="image"></p>
 <hr>
 <h2 id="criticality-this-is-a-critical-vulnerability-2">Criticality: This is a critical vulnerability.</h2>
+<p><code>Impact</code>: Backup and unreferenced files accidentally left accessible may leak sensitive information. Depending on the file, sensitive data can include configuration parameters or source code that help malicious users better understand how your website works, thus making it easier to craft an attack against your website. In some cases, passwords that may give attackers control over the entire WordPress installation can also be leaked.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-2">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191491075-820cb76b-008a-4802-961e-99f329111196.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-2">Suggested Fixes (Remediations)</h2>
+<p>Remove the files if they are not required on your website. As an additional step, it is recommended to implement a security policy within your organization to disallow the creation of backup files in directories accessible from the web.</p>
 <hr>
-<h2 id="4-vulnerability-title">4. Vulnerability Title:</h2>
+<h2 id="4-reflected-cross-site-scripting-xss">4. Reflected Cross-site Scripting (XSS)</h2>
 <hr>
-<h2 id="vulnerability-description-3">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-3">Vulnerability Description</h2>
+<p>Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser-side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.</p>
+<p>An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no way to know that the script should not be trusted, and will execute the script. Because it thinks the script came from a trusted source, the malicious script can access any cookies, session tokens, or other sensitive information retained by the browser and used with that site. These scripts can even rewrite the content of the HTML page.</p>
 <hr>
 <h2 id="affected-component-3">Affected Component</h2>
-<hr>
-<h2 id="affected-users-3">Affected Users</h2>
+<pre><code>http://localhost:3000/rest/track-order
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-3">Proof of Concept (Steps to Reproduce)</h2>
+<p>We need to track an order and capture the request to BurpSuite.
+<img src="https://user-images.githubusercontent.com/92368728/191491742-228f9a2d-04d7-4028-b1d7-ce05617dbb4c.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-medium-vulnerability">Criticality: This is a medium vulnerability.</h2>
+<p><code>Impact</code>: If an attacker can control a script that is executed in the victim&rsquo;s browser, then they can typically fully compromise that user. Amongst other things, the attacker can:<!-- raw HTML omitted --></p>
+<ol>
+<li>Perform any action within the application that the user can perform.</li>
+<li>View any information that the user is able to view.</li>
+<li>Modify any information that the user is able to modify.</li>
+<li>Initiate interactions with other application users, including malicious attacks, that will appear to originate from the initial victim user.</li>
+</ol>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-3">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
-<hr>
+<h2 id="imagehttpsuser-imagesgithubusercontentcom92368728191492362-a71cf492-dbe2-46e2-bf6c-56c331b4a861png"><img src="https://user-images.githubusercontent.com/92368728/191492362-a71cf492-dbe2-46e2-bf6c-56c331b4a861.png" alt="image"></h2>
 <h2 id="suggested-fixes-remediations-3">Suggested Fixes (Remediations)</h2>
+<p><code>Step 1</code>: Train and maintain awareness
+To keep your web application safe, everyone involved in building the web application must be aware of the risks associated with XSS vulnerabilities. You should provide suitable security training to all your developers, QA staff, DevOps, and SysAdmins. You can start by referring them to this page.</p>
+<p><code>Step 2</code>: Don’t trust any user input
+Treat all user input as untrusted. Any user input that is used as part of HTML output introduces a risk of an XSS. Treat input from authenticated and/or internal users the same way that you treat public input.</p>
+<p><code>Step 3</code>: Use escaping/encoding
+Use an appropriate escaping/encoding technique depending on where user input is to be used: HTML escape, JavaScript escape, CSS escape, URL escape, etc. Use existing libraries for escaping, don’t write your own unless absolutely necessary.</p>
+<p><code>Step 4</code>: Sanitize HTML
+If the user input needs to contain HTML, you can’t escape/encode it because it would break valid tags. In such cases, use a trusted and verified library to parse and clean HTML. Choose the library depending on your development language, for example, HtmlSanitizer for .NET or SanitizeHelper for Ruby on Rails.</p>
+<p><code>Step 5</code>: Set the HttpOnly flag
+To mitigate the consequences of a possible XSS vulnerability, set the HttpOnly flag for cookies. If you do, such cookies will not be accessible via client-side JavaScript.</p>
+<p><code>Step 6</code>: Use a Content Security Policy
+To mitigate the consequences of a possible XSS vulnerability, also use a Content Security Policy (CSP). CSP is an HTTP response header that lets you declare the dynamic resources that are allowed to load depending on the request source.</p>
+<p><code>Step 7</code>: Scan regularly (with Acunetix)
+XSS vulnerabilities may be introduced by your developers or through external libraries/modules/software. You should regularly scan your web applications using a web vulnerability scanner such as Acunetix. If you use Jenkins, you should install the Acunetix plugin to automatically scan every build.</p>
 <hr>
-<h2 id="5-vulnerability-title">5. Vulnerability Title:</h2>
+<h2 id="5-vulnerability-title-database-exfiltration">5. Vulnerability Title: Database exfiltration</h2>
 <hr>
-<h2 id="vulnerability-description-4">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-4">Vulnerability Description</h2>
+<p>It is the process of removing, stealing, exporting, manipulating, and accessing private data in an unauthorized manner. It includes data saved or stored anywhere, mobile devices, servers, computers, external storage devices and more.</p>
 <hr>
 <h2 id="affected-component-4">Affected Component</h2>
+<pre><code>http://localhost:3000/rest/products/search?q=
+</code></pre>
 <hr>
-<h2 id="affected-users-4">Affected Users</h2>
+<h2 id="affected-users-2">Affected Users</h2>
+<pre><code>All the users that have an account
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-4">Proof of Concept (Steps to Reproduce)</h2>
+<ol>
+<li>Sent the request to burp.</li>
+<li>Use a syntax query to see all informations about the users from database.
+<img src="https://user-images.githubusercontent.com/92368728/191494191-208db3c3-5cfa-4183-9226-a5c68fb13d21.png" alt="image"></li>
+</ol>
+<p>Brutforce the security question.
+<img src="https://user-images.githubusercontent.com/92368728/191494392-97ae159d-207f-4c01-a425-2f6016edc8bf.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
+<p><code>Impact</code>: A data exfiltration attack involves the unauthorized transfer of sensitive data, such as personal data and intellectual property, out of a target system and into a separate location.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-4">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191494604-de36ff74-df27-47e0-9b95-8137dafc52dc.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-4">Suggested Fixes (Remediations)</h2>
+<p>Preventing data from being exfiltrated is reliant on deploying a security solution that includes features such as:</p>
+<ol>
+<li>Blocking unauthorized communication channels: Some strands of malware use external communication channels to exfiltrate data. Organizations therefore must block any unauthorized communication channels, such as direct and potentially compromised applications.</li>
+<li>Credential theft and phishing prevention: The prevalence of phishing attacks means companies must be able to prevent users from entering their login credentials into spoofed websites. Prevention tools can also block keystroke logging, which enables an attacker to monitor and log a user’s keyboard activity.</li>
+<li>Maintaining user experience: Preventing data exfiltration must not negatively impact user activity. Therefore, organizations should use tools that can detect legitimate application and communication activity, even on new applications.
+User education: Educating users on the risks and threats they face is also important in detecting data exfiltration. Organizations need to ensure that employees understand the telltale signs of a cyberattack, not open malicious attachments, and not click on links included in emails</li>
+</ol>
 <hr>
-<h2 id="6-vulnerability-title">6. Vulnerability Title:</h2>
+<h2 id="6-vulnerability-title">6. Vulnerability Title</h2>
 <hr>
-<h2 id="vulnerability-description-5">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-5">Vulnerability Description</h2>
 <hr>
 <h2 id="affected-component-5">Affected Component</h2>
 <hr>
-<h2 id="affected-users-5">Affected Users</h2>
+<h2 id="affected-users-3">Affected Users</h2>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-5">Proof of Concept (Steps to Reproduce)</h2>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-5">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-5">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <hr>
@@ -195,15 +248,15 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <hr>
 <h2 id="7-vulnerability-title">7. Vulnerability Title:</h2>
 <hr>
-<h2 id="vulnerability-description-6">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-6">Vulnerability Description</h2>
 <hr>
 <h2 id="affected-component-6">Affected Component</h2>
 <hr>
-<h2 id="affected-users-6">Affected Users</h2>
+<h2 id="affected-users-4">Affected Users</h2>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-6">Proof of Concept (Steps to Reproduce)</h2>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-6">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-5">Criticality: This is a critical vulnerability.</h2>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-6">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <hr>
@@ -211,31 +264,31 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <hr>
 <h2 id="8-vulnerability-title">8. Vulnerability Title:</h2>
 <hr>
-<h2 id="vulnerability-description-7">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-7">Vulnerability Description</h2>
 <hr>
 <h2 id="affected-component-7">Affected Component</h2>
 <hr>
-<h2 id="affected-users-7">Affected Users</h2>
+<h2 id="affected-users-5">Affected Users</h2>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-7">Proof of Concept (Steps to Reproduce)</h2>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-7">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-6">Criticality: This is a critical vulnerability.</h2>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-7">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <hr>
 <h2 id="suggested-fixes-remediations-7">Suggested Fixes (Remediations)</h2>
 <hr>
-<h2 id="9-vulnerability-title">9. Vulnerability Title:</h2>
+<h2 id="9-vulnerability-title">9. Vulnerability Title</h2>
 <hr>
-<h2 id="vulnerability-description-8">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-8">Vulnerability Description</h2>
 <hr>
 <h2 id="affected-component-8">Affected Component</h2>
 <hr>
-<h2 id="affected-users-8">Affected Users</h2>
+<h2 id="affected-users-6">Affected Users</h2>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-8">Proof of Concept (Steps to Reproduce)</h2>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-8">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-7">Criticality: This is a critical vulnerability.</h2>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-8">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <hr>
@@ -243,15 +296,15 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <hr>
 <h2 id="10-vulnerability-title">10. Vulnerability Title:</h2>
 <hr>
-<h2 id="vulnerability-description-9">Vulnerability Description:</h2>
+<h2 id="vulnerability-description-9">Vulnerability Description</h2>
 <hr>
 <h2 id="affected-component-9">Affected Component</h2>
 <hr>
-<h2 id="affected-users-9">Affected Users</h2>
+<h2 id="affected-users-7">Affected Users</h2>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-9">Proof of Concept (Steps to Reproduce)</h2>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-9">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-8">Criticality: This is a critical vulnerability.</h2>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-9">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <hr>
