@@ -230,69 +230,151 @@ XSS vulnerabilities may be introduced by your developers or through external lib
 User education: Educating users on the risks and threats they face is also important in detecting data exfiltration. Organizations need to ensure that employees understand the telltale signs of a cyberattack, not open malicious attachments, and not click on links included in emails</li>
 </ol>
 <hr>
-<h2 id="6-vulnerability-title">6. Vulnerability Title</h2>
+<h2 id="6-confidential-documents-exposed-to-public-access">6. Confidential documents exposed to public access</h2>
 <hr>
 <h2 id="vulnerability-description-5">Vulnerability Description</h2>
+<p>Information disclosure, also known as information leakage, is when a website unintentionally reveals sensitive information to its users. Depending on the context, websites may leak all kinds of information to a potential attacker, including:</p>
+<ol>
+<li>Data about other users, such as usernames or financial information</li>
+<li>Sensitive commercial or business data</li>
+<li>Technical details about the website and its infrastructure</li>
+</ol>
+<p>The dangers of leaking sensitive user or business data are fairly obvious, but disclosing technical information can sometimes be just as serious. Although some of this information will be of limited use, it can potentially be a starting point for exposing an additional attack surface, which may contain other interesting vulnerabilities. The knowledge that you are able to gather could even provide the missing piece of the puzzle when trying to construct complex, high-severity attacks.</p>
+<p>Occasionally, sensitive information might be carelessly leaked to users who are simply browsing the website in a normal fashion. More commonly, however, an attacker needs to elicit the information disclosure by interacting with the website in unexpected or malicious ways. They will then carefully study the website&rsquo;s responses to try and identify interesting behavior.</p>
 <hr>
 <h2 id="affected-component-5">Affected Component</h2>
-<hr>
-<h2 id="affected-users-3">Affected Users</h2>
+<pre><code>http://api/BasketItems
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-5">Proof of Concept (Steps to Reproduce)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191529357-59dbbfb2-a6be-4c69-8028-9d1297a09f09.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability">Criticality: This is a high vulnerability.</h2>
+<p><code>Impact</code>:Access control checks for specific user data or functionality can be bypassed. Horizontal escalation of privilege is possible (one user can view/modify information of another user).</p>
+<p>Vertical escalation of privilege is possible if the user-controlled key is actually a flag that indicates administrator status, allowing the attacker to gain administrative access.</p>
+<p>Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification or destruction of all data, or performing a business function outside of the limits of the user.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-5">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191529640-1a1e9a90-9621-46e1-8574-39939d4c9bb0.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-5">Suggested Fixes (Remediations)</h2>
+<p>Preventing information disclosure completely is tricky due to the huge variety of ways in which it can occur. However, there are some general best practices that you can follow to minimize the risk of these kinds of vulnerability creeping into your own websites.</p>
+<ol>
+<li>Make sure that everyone involved in producing the website is fully aware of what information is considered sensitive. Sometimes seemingly harmless information can be much more useful to an attacker than people realize. Highlighting these dangers can help make sure that sensitive information is handled more securely in general by your organization.</li>
+<li>Audit any code for potential information disclosure as part of your QA or build processes. It should be relatively easy to automate some of the associated tasks, such as stripping developer comments.
+Use generic error messages as much as possible. Don&rsquo;t provide attackers with clues about application behavior unnecessarily.</li>
+<li>Double-check that any debugging or diagnostic features are disabled in the production environment.</li>
+<li>Make sure you fully understand the configuration settings, and security implications, of any third-party technology that you implement. <!-- raw HTML omitted --></li>
+<li>Take the time to investigate and disable any features and settings that you don&rsquo;t actually need.</li>
+</ol>
 <hr>
-<h2 id="7-vulnerability-title">7. Vulnerability Title:</h2>
+<h2 id="7-malicious-file-upload-unrestricted-upload-of-file-with-dangerous-type">7. Malicious File Upload: Unrestricted upload of File with dangerous type</h2>
 <hr>
 <h2 id="vulnerability-description-6">Vulnerability Description</h2>
+<p>Uploaded files represent a significant risk to applications. The first step in many attacks is to get some code to the system to be attacked. Then the attack only needs to find a way to get the code executed. Using a file upload helps the attacker accomplish the first step.</p>
+<p>The consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, client-side attacks, or simple defacement. It depends on what the application does with the uploaded file and especially where it is stored.</p>
+<p>There are really two classes of problems here. The first is with the file metadata, like the path and file name. These are generally provided by the transport, such as HTTP multi-part encoding. This data may trick the application into overwriting a critical file or storing the file in a bad location. You must validate the metadata extremely carefully before using it.</p>
+<p>The other class of problem is with the file size or content. The range of problems here depends entirely on what the file is used for. See the examples below for some ideas about how files might be misused. To protect against this type of attack, you should analyse everything your application does with files and think carefully about what processing and interpreters are involved.</p>
 <hr>
 <h2 id="affected-component-6">Affected Component</h2>
-<hr>
-<h2 id="affected-users-4">Affected Users</h2>
+<pre><code>http://localhost:3000/file/upload
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-6">Proof of Concept (Steps to Reproduce)</h2>
+<p>Sent a normal PDF first.
+<img src="https://user-images.githubusercontent.com/92368728/191530708-d85cd5b9-da8b-4669-84eb-3d3ceb34a51b.png" alt="image"></p>
+<p>Copy the content from the Image <!-- raw HTML omitted -->
+Change the filename from Content-Disposition <!-- raw HTML omitted -->
+Change the Content-Type <!-- raw HTML omitted -->
+<img src="https://user-images.githubusercontent.com/92368728/191530855-c0ddc88a-53e8-4e52-85eb-75b5b04e9a46.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-5">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-vulnerability">Criticality: This is a vulnerability.</h2>
+<p><code>Impact</code>: The consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, and simple defacement. It depends on what the application does with the uploaded file and especially where it is stored.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-6">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191531070-5a8ffec8-fd85-4613-86a6-c35c1d06bcf3.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-6">Suggested Fixes (Remediations)</h2>
+<p>Developers must review upload functionality to determine if uploaded content is ever returned to other application users and whether that is due to normal application usage or attack manipulation. As a part of this revision, developers should consider:</p>
+<p>If the application filters file extensions and the MIME type of the uploaded file.
+If placing executable JavaScript or HTML into the file is possible.
+If the header information is returned after the contents of a file are downloaded.
+If the storage location for uploaded content is escapable with a crafted filename.</p>
+<p>There are numerous steps toward a more robust upload code architecture that developers must consider in their design:</p>
+<p>Developers must use an allow list, enforcing acceptance of only listed, non-executable file extensions.
+Developers should ensure file names do not contain directory traversal characters such as ../ that are used to place files outside of designated directory locations.
+Developers should alter permissions on the upload folder to ensure the files can’t be executed.
+Uploads must not be placed in directories that are accessible from the web.
+Developers should ensure that if uploaded files are downloaded by users, they contain X-Content-Type-options: nosniff header and a Content-Disposition header that commands browsers to handle files as an attachment.
+Uploaded files should be subject to immediate virus scanning.
+Developers must enforce size limits on uploaded files and reject archive formats (like ZIP) from being uploaded at all.</p>
 <hr>
-<h2 id="8-vulnerability-title">8. Vulnerability Title:</h2>
+<h2 id="8-poison-null-byte">8. Poison Null Byte</h2>
 <hr>
 <h2 id="vulnerability-description-7">Vulnerability Description</h2>
+<p>A null byte in many languages is used to detect the end of a string. As opposed to storing an integer value in the first byte or two of the string stating the total length. A null byte on the other hand would just be placed at the end of the string. By embedding NULL Bytes/characters into applications that do not handle postfix NULL terminators properly, an attacker can exploit a system using techniques such as directory traversal.</p>
+<p>The Poison Null Byte exploit takes advantage strings with a known length that can contain null bytes, and whether or not the API being attacked uses null terminated strings. By placing a NULL byte in the string at a certain byte, the string will terminate at that point, nulling the rest of the string, such as a file extension.</p>
 <hr>
 <h2 id="affected-component-7">Affected Component</h2>
-<hr>
-<h2 id="affected-users-5">Affected Users</h2>
+<pre><code>http://localhost:3000/ftp/eastere.gg
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-7">Proof of Concept (Steps to Reproduce)</h2>
+<p>We need to try to download the file.
+<img src="https://user-images.githubusercontent.com/92368728/191531586-8fba240e-6207-4a59-82bd-7b5aaacd287c.png" alt="image">
+We can try to trick the website using Poison Null Byte
+<img src="https://user-images.githubusercontent.com/92368728/191532823-ab649f55-d478-41ce-ab64-e4021016d16f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191532876-8f2b5647-bb44-407a-adf9-799b9b85e8df.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-6">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
+<p><code>Impact</code>: Backup and unreferenced files accidentally left accessible may leak sensitive information. Depending on the file, sensitive data can include configuration parameters or source code that help malicious users better understand how your website works, thus making it easier to craft an attack against your website. In some cases, passwords that may give attackers control over the entire WordPress installation can also be leaked.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-7">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191529640-1a1e9a90-9621-46e1-8574-39939d4c9bb0.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-7">Suggested Fixes (Remediations)</h2>
-<hr>
-<h2 id="9-vulnerability-title">9. Vulnerability Title</h2>
+<p>There are a number of ways to prevent Poison Null Byte injections within PHP. These include escaping the NULL byte with a backslash, however, the most recommended way to do so is to completely remove the byte by using code similar to the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$file <span style="color:#f92672">=</span> str_replace<span style="color:#f92672">(</span>chr<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>, <span style="color:#e6db74">&#39;&#39;</span>, $string<span style="color:#f92672">)</span>;
+</span></span></code></pre></div><hr>
+<h2 id="9-two-factor-authentication-bypass">9. Two factor authentication bypass</h2>
 <hr>
 <h2 id="vulnerability-description-8">Vulnerability Description</h2>
+<p>At times, the implementation of two-factor authentication is flawed to the point where it can be bypassed entirely.</p>
+<p>If the user is first prompted to enter a password, and then prompted to enter a verification code on a separate page, the user is effectively in a &ldquo;logged in&rdquo; state before they have entered the verification code. In this case, it is worth testing to see if you can directly skip to &ldquo;logged-in only&rdquo; pages after completing the first authentication step. Occasionally, you will find that a website doesn&rsquo;t actually check whether or not you completed the second step before loading the page.</p>
 <hr>
 <h2 id="affected-component-8">Affected Component</h2>
+<pre><code>http://localhost:3000/rest/user/login
+</code></pre>
 <hr>
-<h2 id="affected-users-6">Affected Users</h2>
+<h2 id="affected-users-3">Affected Users</h2>
+<pre><code>All the users that have an account
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-8">Proof of Concept (Steps to Reproduce)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191533333-06fff092-e99f-47aa-b5dc-fbfe3c6b29f4.png" alt="image"></p>
+<p>Extract the secret from the database.<!-- raw HTML omitted -->
+<img src="https://user-images.githubusercontent.com/92368728/191533483-4acede93-7518-4db7-b46c-3990e46f4a0f.png" alt="image"></p>
+<p>Decode the old qr code.br&lt;&gt;
+<img src="https://user-images.githubusercontent.com/92368728/191533634-976792df-994b-4325-9bca-f8edb038efa4.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-7">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-5">Criticality: This is a critical vulnerability.</h2>
+<p><code>Impact</code>: An attacker can gain access to the victim account or access to the unauthorized resources.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-8">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191533951-139a49b0-392f-4e74-bbc1-937e8218c826.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-8">Suggested Fixes (Remediations)</h2>
+<ol>
+<li>
+<p>Server should always issue randomized tokens</p>
+</li>
+<li>
+<p>Server should have validation check whether the user has provided OTP value in the fields</p>
+</li>
+<li>
+<p>Server should not reveal any kind of OTP codes in the response</p>
+</li>
+</ol>
 <hr>
 <h2 id="10-vulnerability-title">10. Vulnerability Title:</h2>
 <hr>
@@ -300,11 +382,11 @@ User education: Educating users on the risks and threats they face is also impor
 <hr>
 <h2 id="affected-component-9">Affected Component</h2>
 <hr>
-<h2 id="affected-users-7">Affected Users</h2>
+<h2 id="affected-users-4">Affected Users</h2>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-9">Proof of Concept (Steps to Reproduce)</h2>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-8">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-6">Criticality: This is a critical vulnerability.</h2>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-9">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
 <hr>
