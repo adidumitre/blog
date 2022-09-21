@@ -21,7 +21,7 @@
     <time datetime="2022-09-19T21:08:26&#43;03:00">September 19, 2022</time>
   </header>
   <!-- raw HTML omitted -->
-<h2 id="vulnerability-title-the-application-is-vulnerable-to-sql-injection">Vulnerability Title: The application is vulnerable to SQL Injection</h2>
+<h2 id="1-the-application-is-vulnerable-to-sql-injection">1. The application is vulnerable to SQL Injection</h2>
 <hr>
 <h2 id="vulnerability-description">Vulnerability Description:</h2>
 <p>SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. A SQL injection (SQLi) manipulates SQL code to provide access to protected resources, such as sensitive data, or execute malicious SQL statements. <!-- raw HTML omitted --></p>
@@ -34,7 +34,7 @@
 </code></pre>
 <hr>
 <h2 id="affected-users">Affected Users:</h2>
-<pre><code>All the users that have an account.
+<pre><code>All the users that have an account
 </code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce">Proof of Concept (Steps to Reproduce):</h2>
@@ -71,6 +71,192 @@ Option 4: Escaping All User Supplied Input</p>
 <p><code> Additional Defenses:</code></p>
 <p>Also: Enforcing Least Privilege<!-- raw HTML omitted -->
 Also: Performing Allow-list Input Validation as a Secondary Defense</p>
+<hr>
+<h2 id="2-brute-force-login-page-is-vulnerable-to-password-guessing-attacks">2. Brute-Force: Login page is vulnerable to password-guessing attacks</h2>
+<hr>
+<h2 id="vulnerability-description-1">Vulnerability Description:</h2>
+<p>A brute force attack is a type of cyber attack that uses a trial-and-error method to guess all possible combinations of a password, encryption key, or any login information. It is called “brute force” because the malicious actor will use repetitive, forceful attempts to gain unauthorized access to an account. Though surprisingly simple, brute force attacks have a high success rate.</p>
+<hr>
+<h2 id="affected-component-1">Affected Component</h2>
+<p>http://localhost:3000/rest/user/login</p>
+<hr>
+<h2 id="affected-users-1">Affected Users</h2>
+<p>All the users that have an account</p>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-1">Proof of Concept (Steps to Reproduce)</h2>
+<p>Brute froce the password with burp on <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>. <!-- raw HTML omitted -->
+<img src="https://user-images.githubusercontent.com/92368728/191488686-6dd0ea64-7978-4fec-af68-a8051ad6e639.png" alt="img4"></p>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-1">Criticality: This is a critical vulnerability.</h2>
+<p><code>Impact</code>: An attacker could perform an arbitrary number of authentication attempts using different passwords, and eventually, gain access to a user account.</p>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-1">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191488761-03998162-2215-4da2-a9f1-2b5fa09b68fc.png" alt="img5"></p>
+<hr>
+<h2 id="suggested-fixes-remediations-1">Suggested Fixes (Remediations)</h2>
+<ol>
+<li>
+<p>Use Strong Passwords.
+Having a strong password policy is the simplest and most effective way of thwarting a brute-force attack. You would want to create a complex password for your web application or a public server that is impossible to guess but is relatively easy to remember.</p>
+</li>
+<li>
+<p>Limit Login Attempts.<br>
+By default, most websites, especially if they run on WordPress, allow unlimited login attempts. If you are a website administrator, you can use a plugin to limit the login attempts possible on your site to block brute force attacks. Such plugins allow you to enter the number of logins you want your visitors to have. Once they exceed the number of attempts, their IP addresses will be banned from your site for a considerable length of time.</p>
+</li>
+<li>
+<p>Monitor IP addresses.<br>
+In relation to the second tactic, you should limit login attempts to users coming from a specified IP address or range. This is especially important if you have a hybrid work environment or most of your employees work remotely. Set up alerts whenever you encounter login attempts from anomalous IP addresses and make sure to block them.</p>
+</li>
+<li>
+<p>Use Two-Factor Authentication (2FA).<br>
+Two-factor or multi-factor authentication adds an extra layer of security to your accounts. 2FA requires a user to validate their identity when logging into an account before being granted access. For example, you would be asked to confirm that it was indeed you who’s trying to log into your email when you have 2FA enabled. Before gaining access to your account, you would have to key in a unique code sent to your mobile number as a way of verifying your identity.</p>
+</li>
+<li>
+<p>Use CAPTCHAs.<br>
+CAPTCHA stands for “Completely Automated Public Turing test to tell Computers and Humans Apart.” Essentially, CAPTCHAs are challenges that are difficult for automated computer programs to perform but are easy for humans, such as spotting patterns or clicking in a specific area on a webpage. Websites use them to restrict usage by bots and spam.</p>
+</li>
+<li>
+<p>Use Unique Login URLs
+Creating unique login URLs for various user groups would be another challenging and time-consuming step for an attacker. It may not necessarily stop a brute force attack; however, it could deter attackers who can’t be bothered.</p>
+</li>
+<li>
+<p>Disable Root SSH Logins
+Brute force attempts made on the Secure Shell (SSH) protocol are made possible via the root user. Edit the sshd_config file and set it to “DenyUsers root” and “PermitRootLogin no” options to ensure that the root user cannot be accessed via SSH.</p>
+</li>
+<li>
+<p>Use Web Application Firewalls (WAFs)
+A web application firewall (WAF) offers adequate protection against brute force attacks that attempt unauthorized access to your system. It usually enforces a maximum number of requests to a URL space from a source during a specific time interval. Apart from brute force attacks that aim to gain access to steal session tokens, WAFs can prevent denial-of-service (DOS) attacks that drain server resources and block vulnerability scanning tools that probe your computer network for weaknesses. <!-- raw HTML omitted --></p>
+</li>
+</ol>
+<hr>
+<h2 id="3-vulnerability-title">3. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-2">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-2">Affected Component</h2>
+<hr>
+<h2 id="affected-users-2">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-2">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-2">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-2">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-2">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="4-vulnerability-title">4. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-3">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-3">Affected Component</h2>
+<hr>
+<h2 id="affected-users-3">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-3">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-3">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-3">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="5-vulnerability-title">5. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-4">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-4">Affected Component</h2>
+<hr>
+<h2 id="affected-users-4">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-4">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-4">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-4">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="6-vulnerability-title">6. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-5">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-5">Affected Component</h2>
+<hr>
+<h2 id="affected-users-5">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-5">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-5">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-5">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-5">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="7-vulnerability-title">7. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-6">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-6">Affected Component</h2>
+<hr>
+<h2 id="affected-users-6">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-6">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-6">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-6">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-6">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="8-vulnerability-title">8. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-7">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-7">Affected Component</h2>
+<hr>
+<h2 id="affected-users-7">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-7">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-7">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-7">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-7">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="9-vulnerability-title">9. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-8">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-8">Affected Component</h2>
+<hr>
+<h2 id="affected-users-8">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-8">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-8">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-8">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-8">Suggested Fixes (Remediations)</h2>
+<hr>
+<h2 id="10-vulnerability-title">10. Vulnerability Title:</h2>
+<hr>
+<h2 id="vulnerability-description-9">Vulnerability Description:</h2>
+<hr>
+<h2 id="affected-component-9">Affected Component</h2>
+<hr>
+<h2 id="affected-users-9">Affected Users</h2>
+<hr>
+<h2 id="proof-of-concept-steps-to-reproduce-9">Proof of Concept (Steps to Reproduce)</h2>
+<hr>
+<h2 id="criticality-this-is-a-critical-vulnerability-9">Criticality: This is a critical vulnerability.</h2>
+<hr>
+<h2 id="cvss-score-cvss-common-vulnerability-scoring-system-9">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<hr>
+<h2 id="suggested-fixes-remediations-9">Suggested Fixes (Remediations)</h2>
+<hr>
 
 </article>
 
