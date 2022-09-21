@@ -21,7 +21,7 @@
     <time datetime="2022-09-19T21:08:26&#43;03:00">September 19, 2022</time>
   </header>
   <!-- raw HTML omitted -->
-<h2 id="1-the-application-is-vulnerable-to-sql-injection">1. The application is vulnerable to SQL Injection</h2>
+<h2 id="1-sql-injection">1. SQL Injection</h2>
 <hr>
 <h2 id="vulnerability-description">Vulnerability Description</h2>
 <p>SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. A SQL injection (SQLi) manipulates SQL code to provide access to protected resources, such as sensitive data, or execute malicious SQL statements. <!-- raw HTML omitted --></p>
@@ -133,7 +133,14 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <h2 id="3-confidential-documents-exposed-to-public-access">3. Confidential documents exposed to public access</h2>
 <hr>
 <h2 id="vulnerability-description-2">Vulnerability Description</h2>
-<p>Multiple files were found on the web server. These files are usually created by developers to back up their work and can contain sensitive data that can expose and disclose all the critical information about the system.</p>
+<p>Information disclosure, also known as information leakage, is when a website unintentionally reveals sensitive information to its users. Depending on the context, websites may leak all kinds of information to a potential attacker, including:</p>
+<ol>
+<li>Data about other users, such as usernames or financial information</li>
+<li>Sensitive commercial or business data</li>
+<li>Technical details about the website and its infrastructure</li>
+</ol>
+<p>The dangers of leaking sensitive user or business data are fairly obvious, but disclosing technical information can sometimes be just as serious. Although some of this information will be of limited use, it can potentially be a starting point for exposing an additional attack surface, which may contain other interesting vulnerabilities. The knowledge that you are able to gather could even provide the missing piece of the puzzle when trying to construct complex, high-severity attacks.</p>
+<p>Occasionally, sensitive information might be carelessly leaked to users who are simply browsing the website in a normal fashion. More commonly, however, an attacker needs to elicit the information disclosure by interacting with the website in unexpected or malicious ways. They will then carefully study the website&rsquo;s responses to try and identify interesting behavior.</p>
 <hr>
 <h2 id="affected-component-2">Affected Component</h2>
 <pre><code>http://localhost:3000/ftp
@@ -143,7 +150,7 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <p><img src="https://user-images.githubusercontent.com/92368728/191490811-22755035-a73b-4306-947f-06a441b8dd4e.png" alt="image">
 <img src="https://user-images.githubusercontent.com/92368728/191490899-2fa364e2-9ee2-46ac-82dc-bfd3363e6f80.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-2">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability">Criticality: This is a high vulnerability.</h2>
 <p><code>Impact</code>: Backup and unreferenced files accidentally left accessible may leak sensitive information. Depending on the file, sensitive data can include configuration parameters or source code that help malicious users better understand how your website works, thus making it easier to craft an attack against your website. In some cases, passwords that may give attackers control over the entire WordPress installation can also be leaked.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-2">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -193,7 +200,7 @@ To mitigate the consequences of a possible XSS vulnerability, also use a Content
 <p><code>Step 7</code>: Scan regularly (with Acunetix)
 XSS vulnerabilities may be introduced by your developers or through external libraries/modules/software. You should regularly scan your web applications using a web vulnerability scanner such as Acunetix. If you use Jenkins, you should install the Acunetix plugin to automatically scan every build.</p>
 <hr>
-<h2 id="5-vulnerability-title-database-exfiltration">5. Vulnerability Title: Database exfiltration</h2>
+<h2 id="5database-exfiltration">5.Database exfiltration</h2>
 <hr>
 <h2 id="vulnerability-description-4">Vulnerability Description</h2>
 <p>It is the process of removing, stealing, exporting, manipulating, and accessing private data in an unauthorized manner. It includes data saved or stored anywhere, mobile devices, servers, computers, external storage devices and more.</p>
@@ -215,7 +222,7 @@ XSS vulnerabilities may be introduced by your developers or through external lib
 <p>Brutforce the security question.
 <img src="https://user-images.githubusercontent.com/92368728/191494392-97ae159d-207f-4c01-a425-2f6016edc8bf.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-2">Criticality: This is a critical vulnerability.</h2>
 <p><code>Impact</code>: A data exfiltration attack involves the unauthorized transfer of sensitive data, such as personal data and intellectual property, out of a target system and into a separate location.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-4">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -230,26 +237,27 @@ XSS vulnerabilities may be introduced by your developers or through external lib
 User education: Educating users on the risks and threats they face is also important in detecting data exfiltration. Organizations need to ensure that employees understand the telltale signs of a cyberattack, not open malicious attachments, and not click on links included in emails</li>
 </ol>
 <hr>
-<h2 id="6-confidential-documents-exposed-to-public-access">6. Confidential documents exposed to public access</h2>
+<h2 id="6-broken-access-control-authorization-bypass-through-direct-http-request">6. Broken Access control: Authorization Bypass Through Direct HTTP Request</h2>
 <hr>
 <h2 id="vulnerability-description-5">Vulnerability Description</h2>
-<p>Information disclosure, also known as information leakage, is when a website unintentionally reveals sensitive information to its users. Depending on the context, websites may leak all kinds of information to a potential attacker, including:</p>
-<ol>
-<li>Data about other users, such as usernames or financial information</li>
-<li>Sensitive commercial or business data</li>
-<li>Technical details about the website and its infrastructure</li>
-</ol>
-<p>The dangers of leaking sensitive user or business data are fairly obvious, but disclosing technical information can sometimes be just as serious. Although some of this information will be of limited use, it can potentially be a starting point for exposing an additional attack surface, which may contain other interesting vulnerabilities. The knowledge that you are able to gather could even provide the missing piece of the puzzle when trying to construct complex, high-severity attacks.</p>
+<p>The web application does not adequately enforce appropriate authorization on all restricted URLs. A normal user can access the functionality of other users. This is possible by the direct request of the application endpoint of the other users.</p>
+<p>The system&rsquo;s authorization functionality does not prevent one user from gaining access to another user&rsquo;s functionality or records by accessing the endpoint directly. Web applications susceptible to direct request attacks often make the false assumption that such resources can only be reached through a given navigation path and so only apply authorization at certain points in the path.</p>
+<p>Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction of all data or performing a business function outside the user&rsquo;s limits.
+Information disclosure, also known as information leakage, is when a website unintentionally reveals sensitive information to its users. Depending on the context, websites may leak all kinds of information to a potential attacker, including:</p>
+<p>Data about other users, such as usernames or financial information
+Sensitive commercial or business data
+Technical details about the website and its infrastructure
+The dangers of leaking sensitive user or business data are fairly obvious, but disclosing technical information can sometimes be just as serious. Although some of this information will be of limited use, it can potentially be a starting point for exposing an additional attack surface, which may contain other interesting vulnerabilities. The knowledge that you are able to gather could even provide the missing piece of the puzzle when trying to construct complex, high-severity attacks.</p>
 <p>Occasionally, sensitive information might be carelessly leaked to users who are simply browsing the website in a normal fashion. More commonly, however, an attacker needs to elicit the information disclosure by interacting with the website in unexpected or malicious ways. They will then carefully study the website&rsquo;s responses to try and identify interesting behavior.</p>
 <hr>
 <h2 id="affected-component-5">Affected Component</h2>
-<pre><code>http://api/BasketItems
+<pre><code>http://localhost:3000/api/BasketItems
 </code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-5">Proof of Concept (Steps to Reproduce)</h2>
 <p><img src="https://user-images.githubusercontent.com/92368728/191529357-59dbbfb2-a6be-4c69-8028-9d1297a09f09.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-high-vulnerability">Criticality: This is a high vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability-1">Criticality: This is a high vulnerability.</h2>
 <p><code>Impact</code>:Access control checks for specific user data or functionality can be bypassed. Horizontal escalation of privilege is possible (one user can view/modify information of another user).</p>
 <p>Vertical escalation of privilege is possible if the user-controlled key is actually a flag that indicates administrator status, allowing the attacker to gain administrative access.</p>
 <p>Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification or destruction of all data, or performing a business function outside of the limits of the user.</p>
@@ -282,7 +290,7 @@ Use generic error messages as much as possible. Don&rsquo;t provide attackers wi
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-br">Proof of Concept (Steps to Reproduce) <!-- raw HTML omitted --></h2>
 <p>Sent a normal PDF first. <!-- raw HTML omitted --></p>
-<p><img src="https://user-images.githubusercontent.com/92368728/191530708-d85cd5b9-da8b-4669-84eb-3d3ceb34a51b.png" alt="image"></p>
+<!-- raw HTML omitted -->
 <p>Copy the content from the Image <!-- raw HTML omitted --></p>
 <p>Change the filename from Content-Disposition <!-- raw HTML omitted --></p>
 <p>Change the Content-Type <!-- raw HTML omitted --></p>
@@ -327,7 +335,7 @@ We can try to trick the website using Poison Null Byte
 <img src="https://user-images.githubusercontent.com/92368728/191532823-ab649f55-d478-41ce-ab64-e4021016d16f.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/92368728/191532876-8f2b5647-bb44-407a-adf9-799b9b85e8df.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
 <p><code>Impact</code>: Backup and unreferenced files accidentally left accessible may leak sensitive information. Depending on the file, sensitive data can include configuration parameters or source code that help malicious users better understand how your website works, thus making it easier to craft an attack against your website. In some cases, passwords that may give attackers control over the entire WordPress installation can also be leaked.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-7">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -358,7 +366,7 @@ We can try to trick the website using Poison Null Byte
 <p>Decode the old qr code.br&lt;&gt;
 <img src="https://user-images.githubusercontent.com/92368728/191533634-976792df-994b-4325-9bca-f8edb038efa4.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-5">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
 <p><code>Impact</code>: An attacker can gain access to the victim account or access to the unauthorized resources.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-8">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -377,21 +385,38 @@ We can try to trick the website using Poison Null Byte
 </li>
 </ol>
 <hr>
-<h2 id="10-vulnerability-title">10. Vulnerability Title:</h2>
+<h2 id="10-nosql-injection">10. NoSQL Injection</h2>
 <hr>
 <h2 id="vulnerability-description-9">Vulnerability Description</h2>
+<p>A NoSQL injection vulnerability is an error in a web application that uses a NoSQL database. This web application security issue lets a malicious party bypass authentication, extract data, modify data, or even gain complete control over the application. NoSQL injection attacks are the result of a lack of data sanitization.</p>
+<p>NoSQL injections are just one of many injection attacks, similar to traditional SQL Injections. They are engineered to exploit modern databases that do not use SQL. The term NoSQL (not only SQL) is used to describe databases that use a less rigid structure and may refer to many different types of databases, including those that use models such as key-value, key-document, column-family, or graph.</p>
+<p>While NoSQL database engines have a different structure and do not support SQL statements and SQL queries, they still let users perform queries. They do not support one standardized language and therefore the query language is dependent on the implementation: database (e.g. MongoDB, Redis, Google Cloud Datastore, etc.), language (e.g. Python, PHP, etc.), and framework (e.g. Node.js, Angular). However, NoSQL queries are most often based on JSON and they can include user input. If this input is not sanitized, they are vulnerable to injections.</p>
 <hr>
 <h2 id="affected-component-9">Affected Component</h2>
-<hr>
-<h2 id="affected-users-4">Affected Users</h2>
+<pre><code>http://localhost:3000/rest/products/reviews
+</code></pre>
 <hr>
 <h2 id="proof-of-concept-steps-to-reproduce-7">Proof of Concept (Steps to Reproduce)</h2>
+<ol>
+<li>You can interact with the backend API for products reviews via the dedicated endpoints <code>/rest/products/reviews</code> and <code>/rest/products/{id}/reviews</code></li>
+<li>Get the reviews of the product with database ID 1: http://localhost/rest/products/1/reviews</li>
+<li>Inject sleep(integer ms) command by changing the URL into http://localhost:3000/rest/products/sleep(2000)/reviews</li>
+</ol>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-6">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability-2">Criticality: This is a high vulnerability.</h2>
+<p><code>Impact</code>: Money, time, clients and even reputation can be lost in the event of a DoS/DDoS attack. Depending on the severity of an attack, resources could be offline for 24 hours, multiple days or even a week.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-9">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
+<p><img src="https://user-images.githubusercontent.com/92368728/191529640-1a1e9a90-9621-46e1-8574-39939d4c9bb0.png" alt="image"></p>
 <hr>
 <h2 id="suggested-fixes-remediations-9">Suggested Fixes (Remediations)</h2>
+<p>To avoid NoSQL injections, you must always treat user input as untrusted. Here is what you can do to validate user input:</p>
+<ol>
+<li>Use a sanitization library. For example, mongo-sanitize or mongoose.</li>
+<li>If you can’t find a library for your environment, cast user input to the expected type. For example, cast usernames and passwords to strings.</li>
+<li>In the case of MongoDB, never use where, mapReduce, or group operators with user input because these operators allow the attacker to inject JavaScript and are therefore much more dangerous than others. For extra safety, set javascriptEnabled to false in mongod.conf, if possible.</li>
+<li>Additionally, always use the least-privilege model: run your application with the lowest privileges possible so that even if it gets exploited, the attacker cannot access other resources.</li>
+</ol>
 <hr>
 
 </article>
