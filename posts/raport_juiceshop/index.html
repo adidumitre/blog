@@ -84,9 +84,9 @@ Also: Performing Allow-list Input Validation as a Secondary Defense</p>
 <h2 id="affected-users-1">Affected Users</h2>
 <p>All the users that have an account</p>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-1">Proof of Concept (Steps to Reproduce)</h2>
-<p>Brute froce the password with burp on <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>. <!-- raw HTML omitted -->
-<img src="https://user-images.githubusercontent.com/92368728/191488686-6dd0ea64-7978-4fec-af68-a8051ad6e639.png" alt="img4"></p>
+<h2 id="proof-of-concept-steps-to-reproducebr">Proof of Concept (Steps to Reproduce)<!-- raw HTML omitted --></h2>
+<p>Brute froce the password with burp on <a href="mailto:admin@juice-sh.op">admin@juice-sh.op</a>. <!-- raw HTML omitted --></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191488686-6dd0ea64-7978-4fec-af68-a8051ad6e639.png" alt="img4"></p>
 <hr>
 <h2 id="criticality-this-is-a-critical-vulnerability-1">Criticality: This is a critical vulnerability.</h2>
 <p><code>Impact</code>: An attacker could perform an arbitrary number of authentication attempts using different passwords, and eventually, gain access to a user account.</p>
@@ -146,7 +146,7 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <pre><code>http://localhost:3000/ftp
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-2">Proof of Concept (Steps to Reproduce)</h2>
+<h2 id="proof-of-concept-steps-to-reproduce-1">Proof of Concept (Steps to Reproduce)</h2>
 <p><img src="https://user-images.githubusercontent.com/92368728/191490811-22755035-a73b-4306-947f-06a441b8dd4e.png" alt="image">
 <img src="https://user-images.githubusercontent.com/92368728/191490899-2fa364e2-9ee2-46ac-82dc-bfd3363e6f80.png" alt="image"></p>
 <hr>
@@ -169,7 +169,7 @@ A web application firewall (WAF) offers adequate protection against brute force 
 <pre><code>http://localhost:3000/rest/track-order
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-3">Proof of Concept (Steps to Reproduce)</h2>
+<h2 id="proof-of-concept-steps-to-reproduce-2">Proof of Concept (Steps to Reproduce)</h2>
 <p>We need to track an order and capture the request to BurpSuite.
 <img src="https://user-images.githubusercontent.com/92368728/191491742-228f9a2d-04d7-4028-b1d7-ce05617dbb4c.png" alt="image"></p>
 <hr>
@@ -213,14 +213,14 @@ XSS vulnerabilities may be introduced by your developers or through external lib
 <pre><code>All the users that have an account
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-4">Proof of Concept (Steps to Reproduce)</h2>
+<h2 id="proof-of-concept-steps-to-reproduce-3">Proof of Concept (Steps to Reproduce)</h2>
 <ol>
 <li>Sent the request to burp.</li>
 <li>Use a syntax query to see all informations about the users from database. <!-- raw HTML omitted --></li>
 </ol>
-<p><img src="https://user-images.githubusercontent.com/92368728/191494191-208db3c3-5cfa-4183-9226-a5c68fb13d21.png" alt="image"> <!-- raw HTML omitted --></p>
-<p>Brutforce the security question.
-<img src="https://user-images.githubusercontent.com/92368728/191494392-97ae159d-207f-4c01-a425-2f6016edc8bf.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191494191-208db3c3-5cfa-4183-9226-a5c68fb13d21.png" alt="image"><!-- raw HTML omitted --></p>
+<p>Brutforce the security question.<!-- raw HTML omitted --></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191494392-97ae159d-207f-4c01-a425-2f6016edc8bf.png" alt="image"></p>
 <hr>
 <h2 id="criticality-this-is-a-critical-vulnerability-2">Criticality: This is a critical vulnerability.</h2>
 <p><code>Impact</code>: A data exfiltration attack involves the unauthorized transfer of sensitive data, such as personal data and intellectual property, out of a target system and into a separate location.</p>
@@ -254,7 +254,7 @@ The dangers of leaking sensitive user or business data are fairly obvious, but d
 <pre><code>http://localhost:3000/api/BasketItems
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-5">Proof of Concept (Steps to Reproduce)</h2>
+<h2 id="proof-of-concept-steps-to-reproduce-4">Proof of Concept (Steps to Reproduce)</h2>
 <p><img src="https://user-images.githubusercontent.com/92368728/191529357-59dbbfb2-a6be-4c69-8028-9d1297a09f09.png" alt="image"></p>
 <hr>
 <h2 id="criticality-this-is-a-high-vulnerability-1">Criticality: This is a high vulnerability.</h2>
@@ -296,7 +296,7 @@ Use generic error messages as much as possible. Don&rsquo;t provide attackers wi
 <p>Change the Content-Type <!-- raw HTML omitted --></p>
 <p><img src="https://user-images.githubusercontent.com/92368728/191530855-c0ddc88a-53e8-4e52-85eb-75b5b04e9a46.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-vulnerability">Criticality: This is a vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability-2">Criticality: This is a high vulnerability.</h2>
 <p><code>Impact</code>: The consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, and simple defacement. It depends on what the application does with the uploaded file and especially where it is stored.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-6">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -335,7 +335,7 @@ We can try to trick the website using Poison Null Byte
 <img src="https://user-images.githubusercontent.com/92368728/191532823-ab649f55-d478-41ce-ab64-e4021016d16f.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/92368728/191532876-8f2b5647-bb44-407a-adf9-799b9b85e8df.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability-3">Criticality: This is a high vulnerability.</h2>
 <p><code>Impact</code>: Backup and unreferenced files accidentally left accessible may leak sensitive information. Depending on the file, sensitive data can include configuration parameters or source code that help malicious users better understand how your website works, thus making it easier to craft an attack against your website. In some cases, passwords that may give attackers control over the entire WordPress installation can also be leaked.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-7">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -359,14 +359,14 @@ We can try to trick the website using Poison Null Byte
 <pre><code>All the users that have an account
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-6">Proof of Concept (Steps to Reproduce)</h2>
+<h2 id="proof-of-concept-steps-to-reproduce-5">Proof of Concept (Steps to Reproduce)</h2>
 <p><img src="https://user-images.githubusercontent.com/92368728/191533333-06fff092-e99f-47aa-b5dc-fbfe3c6b29f4.png" alt="image"><!-- raw HTML omitted --></p>
-<p>Extract the secret from the database.<!-- raw HTML omitted -->
-<img src="https://user-images.githubusercontent.com/92368728/191533483-4acede93-7518-4db7-b46c-3990e46f4a0f.png" alt="image"></p>
-<p>Decode the old qr code.br&lt;&gt;
-<img src="https://user-images.githubusercontent.com/92368728/191533634-976792df-994b-4325-9bca-f8edb038efa4.png" alt="image"></p>
+<p>Extract the secret from the database.<!-- raw HTML omitted --></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191533483-4acede93-7518-4db7-b46c-3990e46f4a0f.png" alt="image"></p>
+<p>Decode the old qr code.<!-- raw HTML omitted --></p>
+<p><img src="https://user-images.githubusercontent.com/92368728/191533634-976792df-994b-4325-9bca-f8edb038efa4.png" alt="image"></p>
 <hr>
-<h2 id="criticality-this-is-a-critical-vulnerability-4">Criticality: This is a critical vulnerability.</h2>
+<h2 id="criticality-this-is-a-critical-vulnerability-3">Criticality: This is a critical vulnerability.</h2>
 <p><code>Impact</code>: An attacker can gain access to the victim account or access to the unauthorized resources.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-8">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
@@ -396,14 +396,14 @@ We can try to trick the website using Poison Null Byte
 <pre><code>http://localhost:3000/rest/products/reviews
 </code></pre>
 <hr>
-<h2 id="proof-of-concept-steps-to-reproduce-7">Proof of Concept (Steps to Reproduce)</h2>
+<h2 id="proof-of-concept-steps-to-reproduce-6">Proof of Concept (Steps to Reproduce)</h2>
 <ol>
 <li>You can interact with the backend API for products reviews via the dedicated endpoints <code>/rest/products/reviews</code> and <code>/rest/products/{id}/reviews</code></li>
-<li>Get the reviews of the product with database ID 1: http://localhost/rest/products/1/reviews</li>
-<li>Inject sleep(integer ms) command by changing the URL into http://localhost:3000/rest/products/sleep(2000)/reviews</li>
+<li>Get the reviews of the product with database ID 1: <code>http://localhost/rest/products/1/reviews</code></li>
+<li>Inject sleep(integer ms) command by changing the URL into <code>http://localhost:3000/rest/products/sleep(2000)/reviews</code></li>
 </ol>
 <hr>
-<h2 id="criticality-this-is-a-high-vulnerability-2">Criticality: This is a high vulnerability.</h2>
+<h2 id="criticality-this-is-a-high-vulnerability-4">Criticality: This is a high vulnerability.</h2>
 <p><code>Impact</code>: Money, time, clients and even reputation can be lost in the event of a DoS/DDoS attack. Depending on the severity of an attack, resources could be offline for 24 hours, multiple days or even a week.</p>
 <hr>
 <h2 id="cvss-score-cvss-common-vulnerability-scoring-system-9">CVSS Score: CVSS (Common Vulnerability Scoring System)</h2>
